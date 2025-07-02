@@ -1,6 +1,6 @@
 resource_group_name = "cosmos-rg"
 user_assigned_identity_name = "cosmosdb-identity"
-cosmosdb_name       = "cosmosdbdemo"
+cosmosdb_name       = "cosmosdbdemoalgorims"
 database_name       = "demo-db"
 container_name      = "demo-container"
 location            = "East US"

@@ -3,19 +3,15 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-resource "random_integer" "ri" {
-  min = 10000
-  max = 99999
-}
-
 resource "azurerm_user_assigned_identity" "example" {
   name                = var.user_assigned_identity_name
   location            = var.location
   resource_group_name = var.resource_group_name
+  depends_on = [azurerm_resource_group.rg]
 }
 
 resource "azurerm_cosmosdb_account" "cosmos" {
-  name                = "${var.cosmosdb_name}${random_integer.ri.result}"
+  name                = var.cosmosdb_name
   location            = var.location
   resource_group_name = var.resource_group_name
   offer_type          = var.offer_type
