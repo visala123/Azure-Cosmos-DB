@@ -10,17 +10,23 @@ This project demonstrates how to provision an **Azure Cosmos DB (MongoDB API)** 
 
 
 ---
+## Note : 
+
+In the main.tf file depends_on = [azurerm_resource_group.rg] for this line you should give your resource group block name.
 
 ##  Required Secrets in GitHub
 
 In your GitHub repo, go to **Settings → Secrets and Variables → Actions** and add:
 
-| Secret Name              | Description                        |
-|--------------------------|------------------------------------|
-| `AZURE_CLIENT_ID`        | App Registration Client ID         |
-| `AZURE_CLIENT_SECRET`    | App Registration Client Secret     |
-| `AZURE_SUBSCRIPTION_ID`  | Azure Subscription ID              |
-| `AZURE_TENANT_ID`        | Azure Tenant ID                    |
+AZURE_CREDENTIALS  and the value is in the json format
+```
+{
+  "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "clientSecret": "your-very-secure-client-secret",
+  "tenantId": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+  "subscriptionId": "zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+}
+```
 
 These are required for the GitHub Actions workflow to authenticate with Azure.
 How you get these : in shell run the command :
