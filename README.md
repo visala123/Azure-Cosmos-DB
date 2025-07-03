@@ -10,6 +10,9 @@ This project demonstrates how to provision an **Azure Cosmos DB (MongoDB API)** 
 
 
 ---
+## Note : 
+
+In the main.tf file depends_on = [azurerm_resource_group.rg] for this line you should give your resource group block name.
 
 ##  Required Secrets in GitHub
 
